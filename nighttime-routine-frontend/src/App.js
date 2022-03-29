@@ -25,6 +25,12 @@ function App() {
     .then(products => setWishlistItems(products))
   }, [])
 
+  // Handlers
+
+  function handleAddNewProduct(newProduct){
+    setProducts([...products, newProduct])
+  }
+
   return (
     <div className="App">
       <Header />
@@ -41,7 +47,9 @@ function App() {
             />
           </Route>
           <Route exact path='/addProduct' >
-            <AddProduct />
+            <AddProduct 
+              addNewProduct={handleAddNewProduct}
+            />
           </Route>
         </Switch>
     </div>
