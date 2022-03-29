@@ -1,7 +1,17 @@
 import React from 'react'
+import ProductCard from './ProductCard'
 
-export default function ProductList() {
+function ProductList({ products }) {
+  const mappedProducts = products.map (product => (
+    <ProductCard
+      key={product.name}
+      product={product}
+      />
+  ))
+
   return (
-    <div>ProductList</div>
+    <div className="ui six cards">{mappedProducts}</div>
   )
 }
+
+export default ProductList
