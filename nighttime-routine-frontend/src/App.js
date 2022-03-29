@@ -10,11 +10,19 @@ import './App.css';
 function App() {
   // State
   const [products, setProducts] = useState([])
+  const [wishlistItems, setWishlistItems] = useState([])
 
+  // Fetches
   useEffect(() => {
     fetch('http://localhost:9292/products')
     .then(response => response.json())
     .then(products => setProducts(products))
+  }, [])
+
+  useEffect(() => {
+    fetch('http://localhost:9292/wishlist_items')
+    .then(response => response.json())
+    .then(products => setWishlistItems(products))
   }, [])
 
   return (
@@ -27,8 +35,10 @@ function App() {
               products={products}
             />
           </Route>
-          <Route exact path='/wishlist' >
-            <Wishlist />
+          <Route exact path='/wishlist_items' >
+            <Wishlist
+              wishlistItems={wishlistItems}
+            />
           </Route>
           <Route exact path='/addProduct' >
             <AddProduct />
