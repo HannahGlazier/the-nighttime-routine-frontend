@@ -1,8 +1,13 @@
 import React from 'react'
+import { BsCloudMoon } from "react-icons/bs"
+
 
 function Header() {
   return (
-    <div>The Nighttime Routine</div>
+    <div className="header">
+      <BsCloudMoon />
+      The Nighttime Routine
+    </div>
   )
 }
 

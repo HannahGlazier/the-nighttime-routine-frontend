@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+
+.header {
+  background-color: #3E4C5E;
+  color: black;
+  text-align: center;
+  height: 65px;
+  padding-top: 20px;
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 20px;
+}
