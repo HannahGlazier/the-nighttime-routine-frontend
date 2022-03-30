@@ -1,11 +1,13 @@
 import React from 'react'
-import WishlistCard from './WishlistCard'
+// import WishlistCard from './WishlistCard'
+import ProductCard from './ProductCard'
 
-function Wishlist({ wishlistItems }) {
-  const wishlistMap = wishlistItems.map(wishlistItem => (
-    <WishlistCard 
-      key={wishlistItem.id}
-      wishlistItem={wishlistItem}
+function Wishlist({ wishlistItems, setWishlistItems }) {
+  const wishlistMap = wishlistItems.map(product => (
+    <ProductCard
+      key={product.id + product.name}
+      product={product}
+      setWishlistItems={setWishlistItems}
     />
   )) 
 

@@ -11,6 +11,7 @@ function App() {
   // State
   const [products, setProducts] = useState([])
   const [wishlistItems, setWishlistItems] = useState([])
+  // const [newWishlistItem, setNewWishlistItem] = useState([])
 
   // Fetches
   useEffect(() => {
@@ -31,6 +32,22 @@ function App() {
     setProducts([...products, newProduct])
   }
 
+  function handleAddToWishlist(e, product){
+    e.stopPropagation()
+    if(!wishlistItems.includes(product)){
+      setWishlistItems([...wishlistItems, product])
+    }}
+    // fetch ('http://localhost:9292/wishlist_items', { 
+    //   method: 'POST',
+    //   header: {
+    //     'content-type': 'application/json'
+    //   }, 
+    //   // body: JSON.stringify(product)
+    // })
+    // // .then(console.log(product))
+    // .then(setWishlistItems(product))
+  // }
+
   return (
     <div className="App">
       <Header />
@@ -39,14 +56,17 @@ function App() {
           <Route exact path='/products' >
             <ProductList
               products={products}
+              addToWishlist={handleAddToWishlist}
             />
           </Route>
           <Route exact path='/wishlist_items' >
             <Wishlist
               wishlistItems={wishlistItems}
+              // addToWishlist={handleAddToWishlist}
+              setWishlistItems={setWishlistItems}
             />
           </Route>
-          <Route exact path='/addProduct' >
+          <Route exact path='/AddProduct'>
             <AddProduct 
               addNewProduct={handleAddNewProduct}
             />
