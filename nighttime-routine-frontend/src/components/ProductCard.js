@@ -1,6 +1,6 @@
 import React from 'react'
 
-function ProductCard({ product, onProductClick }) {
+function ProductCard({ product, onProductClick,  onRemoveFromWishlist }) {
 
 function addToWishlistTEST(newProduct) {
     fetch ('http://localhost:9292/wishlist_items', { 
@@ -12,7 +12,12 @@ function addToWishlistTEST(newProduct) {
     })
         // .then(console.log(product))
         .then(response => response.json())
+        .then(console.log(product))
         .then(onProductClick(product))
+    }
+
+    function handleDelete() {
+        onRemoveFromWishlist(product);
     }
 
     return (
@@ -29,6 +34,10 @@ function addToWishlistTEST(newProduct) {
                 className="ui button"
                 onClick={() => addToWishlistTEST(product)}
                 >Add to wishlist</button> 
+                <button
+                className="ui button"
+                onClick = {() =>  handleDelete()}
+                >Remove from Wishlist</button>
             </div>
         </div>
     )

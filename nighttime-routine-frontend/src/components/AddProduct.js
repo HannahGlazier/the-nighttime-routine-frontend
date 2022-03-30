@@ -136,44 +136,90 @@ function AddProduct({ addNewProduct }) {
       </div>
     </div>
 
-
-
-      {/* <div className="grouped fields">
-          <label>Concerns: </label>
-          <div className="ui checkbox">
-            <input type="checkbox" name="fine lines"/>
-            <label>Fine Lines </label>
-          </div>
-          <div className="ui checkbox">
-            <input type="checkbox" name="damaged barrier"/>
-            <label>Damaged Barrier </label>
-          </div>
-        <div className="ui checkbox">
-            <input type="checkbox" name="acne"/>
-            <label>Acne </label>
-        </div>
-        <div className="ui checkbox">
-            <input type="checkbox" name="dry skin"/>
-            <label>Dry Skin </label>
-        </div>
-        <div className="ui checkbox">
-            <input type="checkbox" name="wrinkles"/>
-            <label>Wrinkles </label>
-        </div>
-        <div className="ui checkbox">
-            <input type="checkbox" name="redness"/>
-            <label>Redness </label>
-        </div>
-        <div className="ui checkbox">
-            <input type="checkbox" name="dark spots"/>
-            <label>Dark Spots </label>
-        </div>
+    <div className="six wide field">
+        <label>Concerns</label>
+        <input 
+        type="text"
+        name="concerns"
+        value={formData.concerns}
+        onChange={(e) => handleChange(e)}
+        />
       </div>
 
 
 
+{/* testing checkbox */}
+      {/* <div className="grouped fields">
+        <label>Concerns: </label>
+        <div className="ui checkbox">
+          <input 
+          type="checkbox" 
+          name="concerns"
+          value="checked"
+          onChange={(e) => handleChange(e)}
+          />
+          <label>Fine Lines </label>
+        </div>
+        <div className="ui checkbox">
+          <input 
+          type="checkbox" 
+          name="concerns"
+          value={formData.concerns}
+          onChange={(e) => handleChange(e)}
+          />
+          <label>Damaged Barrier </label>
+        </div>
+      <div className="ui checkbox">
+          <input 
+          type="checkbox" 
+          name="concerns"
+          value={formData.concerns}
+          onChange={(e) => handleChange(e)}
+          />
+          <label>Acne </label>
+      </div>
+      <div className="ui checkbox">
+          <input 
+          type="checkbox" 
+          name="concerns"
+          value={formData.concerns}
+          onChange={(e) => handleChange(e)}
+          />
+          <label>Dry Skin </label>
+      </div>
+      <div className="ui checkbox">
+          <input 
+          type="checkbox" 
+          name="concerns"
+          value={formData.concerns}
+          onChange={(e) => handleChange(e)}
+          />
+          <label>Wrinkles </label>
+      </div>
+      <div className="ui checkbox">
+          <input 
+          type="checkbox" 
+          name="concerns"
+          value={formData.concerns}
+          onChange={(e) => handleChange(e)}
+          />
+          <label>Redness </label>
+      </div>
+      <div className="ui checkbox">
+          <input 
+          type="checkbox" 
+          name="concerns"
+          value={formData.concerns}
+          onChange={(e) => handleChange(e)}
+          />
+          <label>Dark Spots </label>
+      </div>
+    </div> */}
+
+
+
       
-      <div className="field">
+      {/* <div className="field">
         <label>Ingredients</label>
         <textarea type="text" ></textarea> */}
       {/* </div> */}
@@ -181,6 +227,15 @@ function AddProduct({ addNewProduct }) {
       <div className="header">Form Completed</div>
         <p>You have successfully added a new product!</p>
       </div> */}
+      <div className="field">
+        <label>Ingredients</label>
+        <textarea 
+        type="text"
+        name="ingredients"
+        value={formData.ingredients}
+        onChange={(e) => handleChange(e)}
+        ></textarea>
+      </div>
       <button
       className="ui submit button"
       type="submit"

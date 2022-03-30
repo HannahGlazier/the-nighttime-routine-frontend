@@ -62,9 +62,10 @@ function App() {
     // // .then(setWishlistItems(product))
   }
 
-  function handleRemoveFromWishlist(product) {
-    fetch(`http://localhost:9292/wishlist_items/${product.id}`, {method: 'DELETE'})
-    const newWishList = wishlistItems.filter
+  function handleRemoveFromWishlist(wishlistItem) {
+    fetch(`http://localhost:9292/wishlist_items/${wishlistItem.id}`, {method: 'DELETE'})
+    const newWishlistItem = wishlistItems.filter(individualProduct => individualProduct !== wishlistItem)
+    setWishlistItems(newWishlistItem)
   }
 
 
@@ -76,6 +77,7 @@ function App() {
           <Route exact path='/products' >
             <ProductList
               products={products}
+              wishlistItems={wishlistItems}
               addToWishlist={handleAddToWishlist}
             />
           </Route>
@@ -84,6 +86,7 @@ function App() {
               wishlistItems={wishlistItems}
               // addToWishlist={handleAddToWishlist}
               setWishlistItems={setWishlistItems}
+              onRemoveFromWishlist={handleRemoveFromWishlist}
             />
           </Route>
           <Route exact path='/AddProduct'>
