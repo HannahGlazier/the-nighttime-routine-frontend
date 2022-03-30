@@ -2,18 +2,18 @@ import React from 'react'
 
 function ProductCard({ product, onProductClick }) {
 
-
-    // function addToWishlistTEST(){
-    // fetch ('http://localhost:9292/wishlist_items', { 
-    //     method: 'POST',
-    //     header: {
-    //         'content-type': 'application/json'
-    //     }, 
-    //     body: JSON.stringify(product)
-    //     })
-    //   // .then(console.log(product))
-    //     .then(setWishlistItems(product))
-    // }
+function addToWishlistTEST(newProduct) {
+    fetch ('http://localhost:9292/wishlist_items', { 
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        }, 
+        body: JSON.stringify({product_id: newProduct.id}),
+    })
+        // .then(console.log(product))
+        .then(response => response.json())
+        .then(onProductClick(product))
+    }
 
     return (
         <div className="ui link card">
@@ -27,7 +27,7 @@ function ProductCard({ product, onProductClick }) {
                 </div>
                 <button 
                 className="ui button"
-                onClick={(e) => onProductClick(e, product)}
+                onClick={() => addToWishlistTEST(product)}
                 >Add to wishlist</button> 
             </div>
         </div>

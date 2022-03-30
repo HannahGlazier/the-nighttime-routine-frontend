@@ -12,13 +12,13 @@ function AddProduct({ addNewProduct }) {
     ingredients: ""
   });
 
-  const initialFormState = {
-    brand: "",
-    name: "",
-    price: "",
-    concerns: "",
-    ingredients: ""
-  };
+  // const initialFormState = {
+  //   brand: "",
+  //   name: "",
+  //   price: "",
+  //   concerns: "",
+  //   ingredients: ""
+  // };
 
   // const brandInputRef = useRef(null);
 
@@ -26,36 +26,75 @@ function AddProduct({ addNewProduct }) {
   //   brandInputRef.current.focus();
   // }, []);
 
+
   function handleChange (e){
-    setFormData({
-      ...formData,
-      [e.target.brand]: e.target.value
+    setFormData(formData => ({
+      ...formData, [e.target.name]: e.target.value
     })
+      // ...formData
+      // [e.target.name]: e.target.value
+    )
   }
 
-  function handleAdd (e){
+  function fetchTest(e){
     e.preventDefault();
-    const newProduct = {
+
+    const newProd = {
       brand: formData.brand,
       name: formData.name,
       price: formData.price,
       concerns: formData.concerns,
       ingredients: formData.ingredients
-  }
-  
-  fetch ('http://localhost:9292/products', { 
-    method: 'POST',
-    header: {
-      'content-type': 'application/json'
-    }, 
-    body: JSON.stringify(newProduct)
-  })
-    .then(response => response.json())
-    .then(addNewProduct)
-    .then(setFormData(initialFormState))
-    history.push("/products")
-  }
+    }
 
+
+    fetch ('http://localhost:9292/products', { 
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      }, 
+      body: JSON.stringify(newProd)
+    })
+      .then(response => response.json())
+      .then(addNewProduct)
+      .then(console.log(newProd))
+      .then(setFormData(formData))
+  
+
+  // function handleSubmit (e){
+  //   e.preventDefault();
+  //   addNewProduct(formData)
+  //   console.log(formData)
+  //   setFormData({
+  //     brand: "",
+  //     name: "",
+  //     price: "",
+  //     concerns: "",
+  //     ingredients: ""
+  // })
+
+  //   const newProduct = {
+  //     brand: formData.brand,
+  //     name: formData.name,
+  //     price: formData.price,
+  //     concerns: formData.concerns,
+  //     ingredients: formData.ingredients
+  // }
+
+    
+  
+  // fetch ('http://localhost:9292/products', { 
+  //   method: 'POST',
+  //   header: {
+  //     'content-type': 'application/json'
+  //   }, 
+  //   body: JSON.stringify(newProduct)
+  // })
+  //   .then(response => response.json())
+  //   .then(addNewProduct)
+  //   .then(setFormData(initialFormState))
+  //   history.push("/products")
+  }
 
 
 
@@ -65,14 +104,15 @@ function AddProduct({ addNewProduct }) {
   return (
     <form 
     className="ui form"
-    onSubmit={(e) => handleAdd(e)}
+    onSubmit={e => fetchTest(e)}
     >
       <div className="three fields">
       <div className="four wide field">
         <label>Brand</label>
         <input 
         type="text"
-        value={FormData.brand}
+        name="brand"
+        value={formData.brand}
         onChange={(e) => handleChange(e)}
         />
       </div>
@@ -80,6 +120,7 @@ function AddProduct({ addNewProduct }) {
         <label>Product Name</label>
         <input 
         type="text"
+        name="name"
         value={formData.name}
         onChange={(e) => handleChange(e)}
         />
@@ -88,7 +129,8 @@ function AddProduct({ addNewProduct }) {
         <label>Price</label>
         <input 
         type="text"
-        value={FormData.price}
+        name="price"
+        value={formData.price}
         onChange={(e) => handleChange(e)}
         />
       </div>
@@ -139,7 +181,11 @@ function AddProduct({ addNewProduct }) {
       <div className="header">Form Completed</div>
         <p>You have successfully added a new product!</p>
       </div> */}
-      <div className="ui submit button">Submit</div>
+      <button
+      className="ui submit button"
+      type="submit"
+      value="Add Product"
+      >Submit</button>
     </form>
   )
 }

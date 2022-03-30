@@ -28,25 +28,45 @@ function App() {
 
   // Handlers
 
+//   function handleAddNewProduct(newProduct){
+//     const newProductsList = [...products, newProduct]
+
+//     fetch ('http://localhost:9292/products', { 
+//       method: 'POST',
+//       header: {
+//         'Content-Type': 'application/json'
+//       }, 
+//       body: JSON.stringify(newProductsList)
+//     })
+//       .then(response => response.json())
+//       .then(setProducts(newProductsList))
+// }
+
   function handleAddNewProduct(newProduct){
     setProducts([...products, newProduct])
   }
 
-  function handleAddToWishlist(e, product){
-    e.stopPropagation()
+  function handleAddToWishlist( product){
     if(!wishlistItems.includes(product)){
       setWishlistItems([...wishlistItems, product])
-    }}
+    }
     // fetch ('http://localhost:9292/wishlist_items', { 
     //   method: 'POST',
     //   header: {
-    //     'content-type': 'application/json'
+    //     'Content-Type': 'application/json',
     //   }, 
-    //   // body: JSON.stringify(product)
+    //   body: JSON.stringify(product),
     // })
     // // .then(console.log(product))
-    // .then(setWishlistItems(product))
-  // }
+    // .then(response => response.json())
+    // // .then(setWishlistItems(product))
+  }
+
+  function handleRemoveFromWishlist(product) {
+    fetch(`http://localhost:9292/wishlist_items/${product.id}`, {method: 'DELETE'})
+    const newWishList = wishlistItems.filter
+  }
+
 
   return (
     <div className="App">
