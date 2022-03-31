@@ -1,18 +1,21 @@
 import React, {useState, useEffect}from 'react'
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useHistory } from "react-router-dom";
 import Header from './components/Header'
 import NavBar from './components/NavBar'
 import ProductList from './components/ProductList'
 import Wishlist from './components/Wishlist'
 import AddProduct from './components/AddProduct'
 import ProductDetailCard from './components/ProductDetailCard'
+import Home from './components/Home'
 import './App.css';
 
 function App() {
   // State
   const [products, setProducts] = useState([])
   const [wishlistItems, setWishlistItems] = useState([])
-  // const [newWishlistItem, setNewWishlistItem] = useState([])
+  const [showIngredients, setShowIngredients] = useState([])
+
+  let history = useHistory()
 
   // Fetches
   useEffect(() => {
@@ -47,16 +50,27 @@ function App() {
   }
 
 
+  function routeChange(product){
+    history.push('/ProductDetailCard')
+    setShowIngredients([product])
+}
+
   return (
     <div className="App">
       <Header />
         <NavBar />
         <Switch>
+        <Route exact path="/">
+          <Home>
+            TEsting
+          </Home>
+          </Route>
           <Route exact path='/products' >
             <ProductList
               products={products}
               wishlistItems={wishlistItems}
               addToWishlist={handleAddToWishlist}
+              routeChange={routeChange}
             />
           </Route>
           <Route exact path='/wishlist_items' >

@@ -103,11 +103,12 @@ function AddProduct({ addNewProduct }) {
     <>
     <h3 className="ui header"><i className="pencil alternate icon"></i>Add New Skincare Product</h3>
     <h2 className="ui sub header">Share your latest finds!</h2>
-    <div></div>
+    <div className="container">
     <form 
     className="ui form"
     onSubmit={e => handleSubmit(e)}
     >
+      <h3 className="ui dividing header">New Products</h3>
       <div className="field">
       <div className="field">
         <label>Brand</label>
@@ -119,7 +120,7 @@ function AddProduct({ addNewProduct }) {
         onChange={(e) => handleChange(e)}
         />
       </div>
-      <div className="field">
+      <div className=" field">
         <label>Product Name</label>
         <input 
         type="text"
@@ -244,7 +245,10 @@ function AddProduct({ addNewProduct }) {
       type="submit"
       value="Add Product"
       >Submit</button>
+      
     </form>
+    <img className="formimage" alt="plant"src="https://images.unsplash.com/photo-1506634064465-7dab4de896ed?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHNraW5jYXJlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"></img>
+    </div>
     </>
   )
 }

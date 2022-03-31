@@ -14,9 +14,7 @@ function addToWishlist(newProduct) {
         }, 
         body: JSON.stringify({product_id: newProduct.id}),
     })
-        // .then(console.log(product))
         .then(response => response.json())
-        // .then(console.log(newProduct))
         .then(onProductClick)
     }
 
@@ -25,6 +23,9 @@ function addToWishlist(newProduct) {
         setShowIngredients(!showIngredients)
     }
 
+    // function handleRoute(product) {
+    //     showIngredients && <ProductDetailCard product={product}/>
+    // }
 
     return (
         
@@ -37,6 +38,7 @@ function addToWishlist(newProduct) {
                 </div>
                 <div className="content">
                     <h5> {product.name}</h5>
+                    <h6>{product.price}</h6>
                     <h5>Good for: {product.concerns}</h5>
                     {/* <button onClick={showIngredients}>Show Ingreds</button> */}
                 {/* <Link to="/ProductDetailCard" product={product}>View ingredients</Link>  */}
@@ -50,13 +52,19 @@ function addToWishlist(newProduct) {
                     </BrowserRouter>
                 </div>
                 {showIngredients && <ProductDetailCard product={product}/>} 
-                <button onClick={handleShowIngredients}>test </button>
+                <div
+                onClick={handleShowIngredients}
+                className="ui bottom attached basic button"
+                ><i className='caret down icon'></i></div>
                 <div
                 className="ui bottom attached olive basic button"
                 onClick={() => addToWishlist(product)}
                 ><i className="add icon"></i>
                 Add To Wishlist</div> 
             </div>
+            <Route exact path="/ProductDetailCard" component={ProductDetailCard}>
+            <ProductDetailCard product={product}/>
+            Ingredients</Route>
         </div>
         
     )

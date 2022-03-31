@@ -17,10 +17,10 @@ function WishlistCard({ wishlistItem, onRemoveFromWishlist }) {
             <div className="content">
                 <h5>{wishlistItem.product.name}</h5>
                 <h5>Good for: {wishlistItem.product.concerns}</h5>
-                <button
-                className="ui red basic button"
+                <div
+                className="ui bottom attached red basic button"
                 onClick = {() =>  handleDelete()}
-                ><i className="trash icon"></i>Remove from Wishlist</button>
+                ><i className="trash icon"></i>Remove from Wishlist</div>
             </div>
         </div>
         </div>

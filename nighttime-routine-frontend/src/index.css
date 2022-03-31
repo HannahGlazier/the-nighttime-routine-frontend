@@ -13,6 +13,31 @@ code {
 }
 
 
+/* Home Page */
+
+.home{
+  background-image: url("https://images.unsplash.com/photo-1504548840739-580b10ae7715?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+  /* object-fit: cover; */
+  background-repeat: no-repeat;
+  /* background-size: 2000px 1000px; */
+  background-size: cover;
+  height: 1000px;
+  /* background-image: url("/src/plant.jpg"); */
+}
+
+.welcome{
+  position: fixed;
+  padding-top: 200px;
+  justify-content: center;
+  color: #fff;
+  
+}
+
+.title{
+  text-shadow: 1px 6px grey;
+}
+
+/* Header */
 
 .main-header {
   background-color: #3E4C5E;
@@ -24,6 +49,24 @@ code {
   font-size: 20px;
 }
 
-.ui.form {
+/* Form/Add Product */
 
+.ui.form {
+  margin: 60px;
+  padding: 50px;
+  border-style: solid;
+  align-items: left;
+  opacity: 0.7;
+  
+}
+
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.formimage{
+  opacity: 0.7;
+  height: 690px;
 }
