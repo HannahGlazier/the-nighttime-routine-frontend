@@ -4,8 +4,8 @@ function ProductDetailCard({ ingredients }) {
 
     return (
         <div>
-            <header className="ui header"> <i class="flask icon"></i>Ingredients</header>
-            <h3>{ingredients.name}</h3>
+            <h3 className="ui header"> <i className="flask icon"></i>Ingredients</h3>
+            <h4>{ingredients.brand}'s {ingredients.name}</h4>
             <div className="ingredients">
                 {ingredients.ingredients}
             </div>
