@@ -20,23 +20,21 @@ function AddProduct({ addNewProduct }) {
   //   ingredients: ""
   // };
 
-  // const brandInputRef = useRef(null);
+  const brandInputRef = useRef(null);
 
-  // useEffect(() => {
-  //   brandInputRef.current.focus();
-  // }, []);
+  useEffect(() => {
+    brandInputRef.current.focus();
+  }, []);
 
 
   function handleChange (e){
     setFormData(formData => ({
       ...formData, [e.target.name]: e.target.value
     })
-      // ...formData
-      // [e.target.name]: e.target.value
     )
   }
 
-  function fetchTest(e){
+  function handleSubmit(e){
     e.preventDefault();
 
     const newProd = {
@@ -59,7 +57,7 @@ function AddProduct({ addNewProduct }) {
       .then(addNewProduct)
       .then(console.log(newProd))
       .then(setFormData(formData))
-  
+      history.push("/products")
 
   // function handleSubmit (e){
   //   e.preventDefault();
@@ -102,21 +100,26 @@ function AddProduct({ addNewProduct }) {
 
 
   return (
+    <>
+    <h3 className="ui header"><i className="pencil alternate icon"></i>Add New Skincare Product</h3>
+    <h2 className="ui sub header">Share your latest finds!</h2>
+    <div></div>
     <form 
     className="ui form"
-    onSubmit={e => fetchTest(e)}
+    onSubmit={e => handleSubmit(e)}
     >
-      <div className="three fields">
-      <div className="four wide field">
+      <div className="field">
+      <div className="field">
         <label>Brand</label>
         <input 
+        ref={brandInputRef}
         type="text"
         name="brand"
         value={formData.brand}
         onChange={(e) => handleChange(e)}
         />
       </div>
-      <div className="four wide field">
+      <div className="field">
         <label>Product Name</label>
         <input 
         type="text"
@@ -125,7 +128,7 @@ function AddProduct({ addNewProduct }) {
         onChange={(e) => handleChange(e)}
         />
       </div>
-      <div className="two wide field">
+      <div className="field">
         <label>Price</label>
         <input 
         type="text"
@@ -136,7 +139,7 @@ function AddProduct({ addNewProduct }) {
       </div>
     </div>
 
-    <div className="six wide field">
+    <div className="field">
         <label>Concerns</label>
         <input 
         type="text"
@@ -242,6 +245,7 @@ function AddProduct({ addNewProduct }) {
       value="Add Product"
       >Submit</button>
     </form>
+    </>
   )
 }
 

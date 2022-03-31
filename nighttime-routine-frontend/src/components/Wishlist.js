@@ -3,8 +3,7 @@ import WishlistCard from './WishlistCard'
 // import ProductCard from './ProductCard'
 
 function Wishlist({ wishlistItems, setWishlistItems,  onRemoveFromWishlist }) {
-  // const firstMap = wishlistItems.map(item => item.product)
-  // console.log(firstMap)
+
   const wishlistMap = wishlistItems.map(wishlistItem => (
     // console.log(wishlistItem.product.brand)
     <WishlistCard
@@ -18,7 +17,7 @@ function Wishlist({ wishlistItems, setWishlistItems,  onRemoveFromWishlist }) {
 
   
   return (
-    <div>{wishlistMap}</div>
+    <div className="ui five cards">{wishlistMap}</div>
   )
 }
 

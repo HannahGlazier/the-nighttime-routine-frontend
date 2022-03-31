@@ -5,6 +5,7 @@ import NavBar from './components/NavBar'
 import ProductList from './components/ProductList'
 import Wishlist from './components/Wishlist'
 import AddProduct from './components/AddProduct'
+import ProductDetailCard from './components/ProductDetailCard'
 import './App.css';
 
 function App() {
@@ -28,38 +29,15 @@ function App() {
 
   // Handlers
 
-//   function handleAddNewProduct(newProduct){
-//     const newProductsList = [...products, newProduct]
-
-//     fetch ('http://localhost:9292/products', { 
-//       method: 'POST',
-//       header: {
-//         'Content-Type': 'application/json'
-//       }, 
-//       body: JSON.stringify(newProductsList)
-//     })
-//       .then(response => response.json())
-//       .then(setProducts(newProductsList))
-// }
-
   function handleAddNewProduct(newProduct){
     setProducts([...products, newProduct])
   }
 
-  function handleAddToWishlist( product){
-    if(!wishlistItems.includes(product)){
-      setWishlistItems([...wishlistItems, product])
+  function handleAddToWishlist( wishlistItem){
+    if(!wishlistItems.includes(wishlistItem)){
+      setWishlistItems([...wishlistItems, wishlistItem])
+      console.log(wishlistItem)
     }
-    // fetch ('http://localhost:9292/wishlist_items', { 
-    //   method: 'POST',
-    //   header: {
-    //     'Content-Type': 'application/json',
-    //   }, 
-    //   body: JSON.stringify(product),
-    // })
-    // // .then(console.log(product))
-    // .then(response => response.json())
-    // // .then(setWishlistItems(product))
   }
 
   function handleRemoveFromWishlist(wishlistItem) {
@@ -94,7 +72,10 @@ function App() {
               addNewProduct={handleAddNewProduct}
             />
           </Route>
-        </Switch>
+          {/* <Route exact path="/ProductDetailCard" component={ProductDetailCard}>
+            <ProductDetailCard products={products}/>
+            Ingredients</Route> */}
+        </Switch> 
     </div>
   );
 }
