@@ -70,3 +70,12 @@ code {
   opacity: 0.7;
   height: 690px;
 }
+
+/* Ingredients */
+
+.ingredients{
+  text-align: center;
+  margin: 10px;
+  padding-left: 300px;
+  padding-right: 300px;
+}

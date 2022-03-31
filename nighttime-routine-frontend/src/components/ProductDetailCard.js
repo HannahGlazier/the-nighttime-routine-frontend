@@ -1,11 +1,14 @@
 import React from 'react'
 
-function ProductDetailCard({ product }) {
-    // const mappedProducts = product.map(p => p.name)
+function ProductDetailCard({ ingredients }) {
 
     return (
-        <div className="ui sub header">
-            {product.ingredients}
+        <div>
+            <header className="ui header"> <i class="flask icon"></i>Ingredients</header>
+            <h3>{ingredients.name}</h3>
+            <div className="ingredients">
+                {ingredients.ingredients}
+            </div>
         </div>
     )
 }

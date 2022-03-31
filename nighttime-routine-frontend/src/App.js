@@ -13,7 +13,7 @@ function App() {
   // State
   const [products, setProducts] = useState([])
   const [wishlistItems, setWishlistItems] = useState([])
-  const [showIngredients, setShowIngredients] = useState([])
+  const [ingredients, setIngredients] = useState([])
 
   let history = useHistory()
 
@@ -39,7 +39,6 @@ function App() {
   function handleAddToWishlist( wishlistItem){
     if(!wishlistItems.includes(wishlistItem)){
       setWishlistItems([...wishlistItems, wishlistItem])
-      console.log(wishlistItem)
     }
   }
 
@@ -52,7 +51,7 @@ function App() {
 
   function routeChange(product){
     history.push('/ProductDetailCard')
-    setShowIngredients([product])
+    setIngredients(product)
 }
 
   return (
@@ -86,9 +85,9 @@ function App() {
               addNewProduct={handleAddNewProduct}
             />
           </Route>
-          {/* <Route exact path="/ProductDetailCard" component={ProductDetailCard}>
-            <ProductDetailCard products={products}/>
-            Ingredients</Route> */}
+          <Route exact path="/ProductDetailCard">
+            <ProductDetailCard ingredients={ingredients} setIngredients={setIngredients}/>
+          </Route>
         </Switch> 
     </div>
   );
