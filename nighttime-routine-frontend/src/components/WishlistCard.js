@@ -6,21 +6,8 @@ function WishlistCard({ price, wishlistItems, wishlistItem, onRemoveFromWishlist
         onRemoveFromWishlist(wishlistItem);
     }
 
-    const priceMap = wishlistItems.map(item => item.product.price)
-    // let sum = 0
-    // priceMap.forEach(x => {
-    //     sum += x;
-    // })
-    
-    let sum = priceMap.reduce(function (x, y) {
-        return x + y;
-    }, 0)
-
-
-
     return (
         <div>
-        Total Cost: {sum}
         <div className="ui link card">
         <div className="card">
             <div className="header">

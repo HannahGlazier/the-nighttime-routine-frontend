@@ -5,7 +5,9 @@ import WishlistCard from './WishlistCard'
 function Wishlist({ wishlistItems, setWishlistItems,  onRemoveFromWishlist }) {
 
   const priceMap = wishlistItems.map(item => item.product.price)
-
+  let sum = priceMap.reduce(function (x, y) {
+    return x + y;
+}, 0)
 
   
 
@@ -23,7 +25,10 @@ function Wishlist({ wishlistItems, setWishlistItems,  onRemoveFromWishlist }) {
   
   
   return (
-    <div className="ui five cards">{wishlistMap}</div>
+    <div>
+      <div className="ui five cards">{wishlistMap}</div>
+      <div className="ui right aligned header">Total Cost ${sum}</div>
+    </div>
   )
 }
 
