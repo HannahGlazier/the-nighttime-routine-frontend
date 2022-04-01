@@ -35,8 +35,14 @@ function App() {
   const sortProducts = products.sort((product1, product2) => {
     if (sortBy === 'default'){
       return product1.id - product2.id
-    }else{
+    } else if (sortBy === 'name'){
       return product1.name.localeCompare(product2.name)
+    } else if (sortBy === 'high price'){
+      return product2.price - product1.price
+    } else if (sortBy === 'low price'){
+      return product1.price - product2.price
+    } else {
+      return product1.brand.localeCompare(product2.brand)
     }
   })
 
@@ -88,7 +94,6 @@ function App() {
           <Route exact path='/wishlist_items' >
             <Wishlist
               wishlistItems={wishlistItems}
-              // addToWishlist={handleAddToWishlist}
               setWishlistItems={setWishlistItems}
               onRemoveFromWishlist={handleRemoveFromWishlist}
             />

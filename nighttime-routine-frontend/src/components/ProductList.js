@@ -13,7 +13,9 @@ function ProductList({ products, addToWishlist, routeChange, sortBy, setSortBy }
 
   return (
     <div>
-      <div className="sort">Order By:
+      <div>
+      <div className="sort ui horizontal divider">Order By:</div>
+        </div>
         <div className="ui item">
             <select 
               className="ui selection dropdown"
@@ -22,13 +24,37 @@ function ProductList({ products, addToWishlist, routeChange, sortBy, setSortBy }
             >
               <option value="default">Default</option>
               <option value="name">Name</option>
+              <option value="brand">Brand</option>
+              <option value="low price">Price (Low - High)</option>
+              <option value="high price">Price (High - Low)</option>
             </select>
           </div>
           <br></br>
         <div className="ui five cards">{mappedProducts}</div>
       </div>
-    </div>
   )
 }
 
 export default ProductList
+
+
+
+
+
+
+// {/* <div className="ui item">
+// <label>Order By:</label>
+// </div>
+// <div className="ui item">
+// <input 
+// checked={"default"}
+// onChange={(e) => setSortBy(e.target.checked)}
+// className="ui radio checkbox"
+// type="checkbox" 
+// name="default"/>
+// <input 
+// checked={"name"}
+// onChange={(e) => setSortBy(e.target.checked)}
+// className="ui ra checkbox"
+// type="checkbox" 
+// /> */}

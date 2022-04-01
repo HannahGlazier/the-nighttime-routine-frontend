@@ -38,8 +38,9 @@ code {
 }
 
 /* Product List Page */
+
 .sort{
-  text-align: left;
+  position: relative;
 }
 
 /* Header */
