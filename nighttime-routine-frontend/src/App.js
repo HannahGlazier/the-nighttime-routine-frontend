@@ -14,6 +14,7 @@ function App() {
   const [products, setProducts] = useState([])
   const [wishlistItems, setWishlistItems] = useState([])
   const [ingredients, setIngredients] = useState([])
+  const [sortBy, setSortBy] = useState('default')
 
   let history = useHistory()
 
@@ -29,6 +30,15 @@ function App() {
     .then(response => response.json())
     .then(products => setWishlistItems(products))
   }, [])
+
+  // Sort
+  const sortProducts = products.sort((product1, product2) => {
+    if (sortBy === 'default'){
+      return product1.id - product2.id
+    }else{
+      return product1.name.localeCompare(product2.name)
+    }
+  })
 
   // Handlers
 
@@ -57,7 +67,8 @@ function App() {
   return (
     <div className="App">
       <Header />
-        <NavBar />
+        <NavBar
+        />
         <Switch>
         <Route exact path="/">
           <Home>
@@ -66,10 +77,12 @@ function App() {
           </Route>
           <Route exact path='/products' >
             <ProductList
-              products={products}
+              products={sortProducts}
               wishlistItems={wishlistItems}
               addToWishlist={handleAddToWishlist}
               routeChange={routeChange}
+              sortBy={sortBy}
+              setSortBy={setSortBy}
             />
           </Route>
           <Route exact path='/wishlist_items' >

@@ -37,6 +37,11 @@ code {
   text-shadow: 1px 6px grey;
 }
 
+/* Product List Page */
+.sort{
+  text-align: left;
+}
+
 /* Header */
 
 .main-header {
