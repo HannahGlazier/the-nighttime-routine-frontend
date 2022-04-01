@@ -23,7 +23,7 @@ function ProductList({ products, addToWishlist, routeChange, sortBy, setSortBy }
               onChange={(e) => setSortBy(e.target.value)}
             >
               <option value="default">Default</option>
-              <option value="name">Name</option>
+              <option value="name">Product Name</option>
               <option value="brand">Brand</option>
               <option value="low price">Price (Low - High)</option>
               <option value="high price">Price (High - Low)</option>

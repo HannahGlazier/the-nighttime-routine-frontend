@@ -43,6 +43,14 @@ code {
   position: relative;
 }
 
+/* Wishlist */
+
+.wishlist{
+  margin: 20px;
+  padding: 20px;
+  border: 20px;
+}
+
 /* Header */
 
 .main-header {

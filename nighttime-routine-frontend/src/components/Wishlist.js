@@ -25,7 +25,7 @@ function Wishlist({ wishlistItems, setWishlistItems,  onRemoveFromWishlist }) {
   
   
   return (
-    <div>
+    <div className="wishlist">
       <div className="ui five cards">{wishlistMap}</div>
       <div className="ui right aligned header">Total Cost ${sum}</div>
     </div>
