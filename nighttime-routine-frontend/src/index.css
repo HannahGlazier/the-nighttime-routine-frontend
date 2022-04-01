@@ -57,6 +57,7 @@ code {
   border-style: solid;
   align-items: left;
   opacity: 0.7;
+  width: 450px;
   
 }
 
@@ -76,6 +77,6 @@ code {
 .ingredients{
   text-align: center;
   margin: 10px;
-  padding-left: 300px;
-  padding-right: 300px;
+  padding-left: 400px;
+  padding-right: 400px;
 }

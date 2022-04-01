@@ -39,8 +39,9 @@ function addToWishlist(newProduct) {
                 <div className="content">
                     <h5> {product.name} (${product.price})</h5>
                     <h5>Treat: {product.concerns}</h5>
-                {/* <NavLink to="/ProductDetailCard">See Ingredients</NavLink> */}
-                <div onClick={() => routeChange(product)}>Ingredients</div>
+                <div onClick={() => routeChange(product)}>
+                <i className="flask icon"></i>
+                </div>
                 </div>
                 {/* {showIngredients && <ProductDetailCard product={product}/>} 
                 <div

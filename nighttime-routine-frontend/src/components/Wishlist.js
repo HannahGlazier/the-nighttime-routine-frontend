@@ -4,17 +4,23 @@ import WishlistCard from './WishlistCard'
 
 function Wishlist({ wishlistItems, setWishlistItems,  onRemoveFromWishlist }) {
 
+  const priceMap = wishlistItems.map(item => item.product.price)
+
+
+  
+
   const wishlistMap = wishlistItems.map(wishlistItem => (
-    // console.log(wishlistItem.product.brand)
     <WishlistCard
       key={wishlistItem.id}
       wishlistItem={wishlistItem}
+      wishlistItems={wishlistItems}
       setWishlistItems={setWishlistItems}
       onRemoveFromWishlist={ onRemoveFromWishlist}
+      price = {wishlistItem.product.price}
     />
     
   )) 
-
+  
   
   return (
     <div className="ui five cards">{wishlistMap}</div>
