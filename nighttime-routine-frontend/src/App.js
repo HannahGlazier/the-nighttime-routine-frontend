@@ -78,7 +78,6 @@ function App() {
         <Switch>
         <Route exact path="/">
           <Home>
-            TEsting
           </Home>
           </Route>
           <Route exact path='/products' >

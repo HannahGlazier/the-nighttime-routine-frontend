@@ -12,17 +12,33 @@ code {
     monospace;
 }
 
+/* Header */
+
+.main-header {
+  background-color: #3E4C5E;
+  color: #0A070A;
+  text-align: center;
+  height: 65px;
+  padding-top: 20px;
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 20px;
+  text-shadow: 1px 1px grey;
+}
+
+/* Nav Bar */
+
+.ui.secondary.pointing.menu{
+  margin: 0px;
+  border-top: 2px solid;
+}
 
 /* Home Page */
 
 .home{
   background-image: url("https://images.unsplash.com/photo-1504548840739-580b10ae7715?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
-  /* object-fit: cover; */
   background-repeat: no-repeat;
-  /* background-size: 2000px 1000px; */
   background-size: cover;
   height: 1000px;
-  /* background-image: url("/src/plant.jpg"); */
 }
 
 .welcome{
@@ -49,18 +65,6 @@ code {
   margin: 20px;
   padding: 20px;
   border: 20px;
-}
-
-/* Header */
-
-.main-header {
-  background-color: #3E4C5E;
-  color: black;
-  text-align: center;
-  height: 65px;
-  padding-top: 20px;
-  font-family: 'Merriweather Sans', sans-serif;
-  font-size: 20px;
 }
 
 /* Form/Add Product */
