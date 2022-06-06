@@ -1,6 +1,5 @@
 import React from 'react'
 import WishlistCard from './WishlistCard'
-// import ProductCard from './ProductCard'
 
 function Wishlist({ wishlistItems, setWishlistItems,  onRemoveFromWishlist }) {
 
@@ -8,8 +7,6 @@ function Wishlist({ wishlistItems, setWishlistItems,  onRemoveFromWishlist }) {
   let sum = priceMap.reduce(function (x, y) {
     return x + y;
 }, 0)
-
-  
 
   const wishlistMap = wishlistItems.map(wishlistItem => (
     <WishlistCard
@@ -22,7 +19,6 @@ function Wishlist({ wishlistItems, setWishlistItems,  onRemoveFromWishlist }) {
     />
     
   )) 
-  
   
   return (
     <div className="wishlist">
